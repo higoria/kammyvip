@@ -396,15 +396,15 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   .lnk .desc{ display:block; text-align:center; margin:10px 0 16px; font-size:14px; font-weight:500;
     color:var(--muted); line-height:1.4; }
 
-  /* ===== barra flutuante com os 4 botoes ===== */
+  /* ===== barra flutuante com os 5 botoes ===== */
   .float-links{ position:fixed; left:50%; bottom:0; width:100%; max-width:480px; z-index:999999;
-    display:flex; gap:6px; padding:10px 10px 14px;
+    display:flex; flex-wrap:wrap; justify-content:center; gap:6px; padding:10px 10px 14px;
     background:linear-gradient(to top, rgba(10,4,5,.96) 55%, rgba(10,4,5,0));
     pointer-events:none; opacity:0; transform:translate(-50%,140%);
     transition:transform .38s cubic-bezier(.2,.7,.2,1), opacity .3s ease; }
   .float-links.show{ opacity:1; transform:translate(-50%,0); pointer-events:auto; }
-  .float-links a{ flex:1 1 0; min-width:0; display:flex; align-items:center; justify-content:center; gap:5px;
-    padding:11px 4px; border-radius:999px; text-decoration:none !important; color:#fff !important;
+  .float-links a{ flex:1 1 calc(33.333% - 6px); min-width:0; display:flex; align-items:center; justify-content:center; gap:5px;
+    padding:10px 6px; border-radius:999px; text-decoration:none !important; color:#fff !important;
     font-size:11.5px; font-weight:800; text-shadow:0 1px 4px rgba(0,0,0,.3);
     border:1px solid rgba(255,255,255,.28); white-space:nowrap; }
   .float-links a svg{ width:16px; height:16px; flex:0 0 auto; }
@@ -412,11 +412,12 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   .float-links a.orange{ background:linear-gradient(180deg,#ff8a00,#cc5500); box-shadow:0 6px 18px rgba(255,138,0,.4); }
   .float-links a.purple{ background:linear-gradient(180deg,#9955ff,#5b17cb); box-shadow:0 6px 18px rgba(153,85,255,.45); }
   .float-links a.green{ background:linear-gradient(180deg,#19aa59,#086230); box-shadow:0 6px 18px rgba(25,170,89,.45); }
+  .float-links a.red{ background:linear-gradient(180deg,#d8403f,#9c2027); box-shadow:0 6px 18px rgba(216,64,63,.45); }
 
   @media (max-width:380px){
     .pill{ font-size:17px; min-height:60px; }
     .pill .ico{ width:26px; height:26px; }
-    .float-links a{ font-size:12px; }
+    .float-links a{ font-size:11.5px; }
   }
   @media (prefers-reduced-motion:reduce){ .pill::after{ animation:none; } }
 
@@ -451,6 +452,18 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
           <circle cx="18" cy="18" r="4.2" fill="#D4AF37" opacity=".35"/>
           <path fill="#8B5A2B" d="M18 15c-.7 0-1.2.4-1.4 1-.1.3 0 .7.3.9l.4.3-.3.5c-.3.4-.3.9 0 1.3l.5.6c-.2.2-.3.5-.3.8 0 .6.4 1 1 1.1.2 0 .4 0 .5-.1.2.1.4.1.5.1.6-.1 1-.5 1-1.1 0-.3-.1-.6-.3-.8l.5-.6c.3-.4.3-.9 0-1.3l-.3-.5.4-.3c.3-.2.4-.6.3-.9-.2-.6-.7-1-1.4-1z"/>
           <path fill="#006341" d="M16 21.5c1 .5 3 .5 4 0-.3-.3-.8-.5-1.4-.5h-1.2c-.6 0-1.1.2-1.4.5z"/>
+        </g>
+        <circle cx="18" cy="18" r="17" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+      </symbol>
+      <clipPath id="cl-circle">
+        <circle cx="18" cy="18" r="17"/>
+      </clipPath>
+      <symbol id="ico-flag-cl" viewBox="0 0 36 36">
+        <g clip-path="url(#cl-circle)">
+          <rect x="0" y="0" width="18" height="18" fill="#0039A6"/>
+          <rect x="18" y="0" width="18" height="18" fill="#FFFFFF"/>
+          <rect x="0" y="18" width="36" height="18" fill="#D52B1E"/>
+          <polygon fill="#FFFFFF" points="11,6.8 11.97,9.67 14.99,9.7 12.57,11.51 13.47,14.4 11,12.65 8.53,14.4 9.43,11.51 7.01,9.7 10.03,9.67"/>
         </g>
         <circle cx="18" cy="18" r="17" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
       </symbol>
@@ -518,7 +531,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       <span class="badge">+18</span>
     </div>
 
-    <!-- ===================== 4) OS 4 BOTOES ===================== -->
+    <!-- ===================== 4) OS 5 BOTOES ===================== -->
     <!-- EDITAR: links e frases embaixo de cada botao -->
     <div class="links reveal" style="animation-delay:.18s" id="links">
       <a class="lnk" href="https://telegram.me/kamillyruivinhavipbot" target="_blank" rel="noopener">
@@ -536,6 +549,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       <a class="lnk" href="https://telegram.me/kammillyvipmex_bot" target="_blank" rel="noopener">
         <span class="pill green"><svg class="ico"><use href="#ico-flag-mx"></use></svg><span class="lbl">Telegram VIP (México)</span></span>
         <span class="desc">Acceso VIP para México · Pagos en OXXO y SPEI</span>
+      </a>
+      <a class="lnk" href="https://telegram.me/kammillyvipchile_bot" target="_blank" rel="noopener">
+        <span class="pill red"><svg class="ico"><use href="#ico-flag-cl"></use></svg><span class="lbl">Telegram VIP (Chile)</span></span>
+        <span class="desc">Acceso VIP para Chile · Acceso inmediato</span>
       </a>
     </div>
 
@@ -563,7 +580,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       <div class="by">— Kammy Freitas</div>
     </div>
 
-    <!-- ===================== 7) OS 4 BOTOES DE NOVO ===================== -->
+    <!-- ===================== 7) OS 5 BOTOES DE NOVO ===================== -->
     <div class="block-title reveal" style="animation-delay:.36s">
       <div class="kk">Para de se segurar</div>
       <h2>Vem me ver sem censura</h2>
@@ -584,6 +601,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       <a class="lnk" href="https://telegram.me/kammillyvipmex_bot" target="_blank" rel="noopener">
         <span class="pill green"><svg class="ico"><use href="#ico-flag-mx"></use></svg><span class="lbl">Telegram VIP (México)</span></span>
         <span class="desc">Acceso VIP para México · Pagos en OXXO y SPEI</span>
+      </a>
+      <a class="lnk" href="https://telegram.me/kammillyvipchile_bot" target="_blank" rel="noopener">
+        <span class="pill red"><svg class="ico"><use href="#ico-flag-cl"></use></svg><span class="lbl">Telegram VIP (Chile)</span></span>
+        <span class="desc">Acceso VIP para Chile · Acceso inmediato</span>
       </a>
     </div>
 
@@ -650,6 +671,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     <a class="orange" href="https://telaprivacy-five.vercel.app/" target="_blank" rel="noopener"><svg><use href="#ico-privacy"></use></svg>Privacy</a>
     <a class="purple" href="https://telegram.me/kammillyvipeua_bot" target="_blank" rel="noopener"><svg><use href="#ico-globe"></use></svg>VIP Global</a>
     <a class="green" href="https://telegram.me/kammillyvipmex_bot" target="_blank" rel="noopener"><svg><use href="#ico-flag-mx"></use></svg>VIP México</a>
+    <a class="red" href="https://telegram.me/kammillyvipchile_bot" target="_blank" rel="noopener"><svg><use href="#ico-flag-cl"></use></svg>VIP Chile</a>
   </div>
 		<script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/hello-elementor/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
